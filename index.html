@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auspious | Digital Architect</title>
+    <meta name="description"
+        content="Auspious: Full-Stack Architect specializing in scalable enterprise, healthcare, and luxury hospitality platforms.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="enhancements.css">
+</head>
+
+<body>
+    <div id="cursor-follower"></div>
+    <div id="noise-overlay"></div>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <header class="main-header">
+        <a href="#" class="logo">Godknows Mugaduyi<span class="dot">.</span></a>
+        <nav>
+            <ul>
+                <li><a href="#about" class="magnetic-btn">About</a></li>
+                <li><a href="#work" class="magnetic-btn">Work</a></li>
+                <li><a href="#vault" class="magnetic-btn">Vault</a></li>
+                <li><a href="#contact" class="magnetic-btn">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-content">
+                <h1 class="glitch-text" data-text="PROFESSIONAL DIGITAL ECOSYSTEMS">
+                    PROFESSIONAL<br>DIGITAL<br>ECOSYSTEMS
+                </h1>
+                <p class="hero-sub">Godknows: Full-Stack Architect specializing in scalable enterprise, healthcare,
+                    Luxury hospitality, child welfare, and education platforms.</p>
+                <div class="hero-cta">
+                    <a href="#work" class="primary-btn magnetic-btn">View Architecture</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Explore</span>
+                <div class="line"></div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <div class="about-image-wrapper">
+                    <div class="image-frame">
+                        <img src="Godknows.jpg" alt="Godknows Mugaduyi" class="profile-image">
+                        <div class="image-glow"></div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="about-label">The Architect</span>
+                    <h2>Godknows Mugaduyi</h2>
+                    <div class="about-text">
+                        <p>Full-Stack Architect with a proven track record in building scalable, enterprise-grade
+                            digital ecosystems. Specializing in <strong>healthcare technology</strong>,
+                            <strong>enterprise cloud solutions</strong>, <strong>luxury hospitality</strong>,
+                            <strong>child welfare</strong>, and <strong>education platforms</strong>. New in the game
+                            but better than the legends.
+                        </p>
+
+                        <p>My approach combines technical precision with strategic vision transforming complex business
+                            requirements into elegant, high-performance systems that scale. From <em>HIPAA-compliant
+                                patient portals</em> to <em>web applications</em>, I architect solutions that prioritize
+                            security, performance, and user experience.</p>
+
+                        <p>With expertise spanning <strong>React</strong>, <strong>Node.js</strong>,
+                            <strong>Python/Django</strong>, <strong>Cloud Infrastructure (AWS, DigitalOcean)</strong>,
+                            and modern DevOps practices, I deliver production-ready systems that drive measurable
+                            business outcomes.
+                        </p>
+
+                        <div class="expertise-tags">
+                            <span class="tag">Full-Stack Development</span>
+                            <span class="tag">Cloud Architecture</span>
+                            <span class="tag">System Design</span>
+                            <span class="tag">UX Engineering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK GALLERY (Horizontal Scroll / Bento Grid) -->
+        <section id="work" class="work-section">
+            <h2 class="section-title">Selected Works <span class="counter">03</span></h2>
+
+            <div class="work-gallery-container">
+                <!-- Project 01 -->
+                <article class="project-card bento-item" href="https://auspious.github.io/Kayden-Clinic/"
+                    data-tech="React, Python, HIPAA"
+                    data-snippet="class SecurePatientData(models.Model):\n    id = models.UUIDField(primary_key=True)\n    encrypted_record = FernetField()\n    # HIPAA Compliance Level: High">
+                    <div class="card-content">
+                        <span class="project-tag">Healthcare Integration</span>
+                        <h3>Kayden Clinic</h3>
+                        <p>Patient-First UX & Secure System Design.</p>
+                        <a href="https://auspious.github.io/Kayden-Clinic/" target="_blank"
+                            class="project-link magnetic-btn">View Case Study</a>
+                    </div>
+                    <div class="card-visual">
+                        <img src="kayden-clinic.png" alt="Kayden Clinic Dashboard" class="project-image">
+                        <div class="abstract-shape shape-1"></div>
+                    </div>
+                </article>
+
+                <!-- Project 02 -->
+                <article class="project-card bento-item" href="https://esolutions-gdujf.ondigitalocean.app"
+                    target="_blank" data-tech="Cloud, Docker, K8s"
+                    data-snippet="apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: esolutions-enterprise\nspec:\n  replicas: 5\n  selector:\n    matchLabels:\n      app: esolutions">
+                    <div class="card-content">
+                        <span class="project-tag">Enterprise Ecosystem</span>
+                        <h3>E-Solutions</h3>
+                        <p>Digital Transformation & Cloud Scalability.</p>
+                        <a href="https://esolutions-gdujf.ondigitalocean.app" target="_blank"
+                            class="project-link magnetic-btn">Live Deployment</a>
+                    </div>
+                    <div class="card-visual">
+                        <img src="esolutions.png" alt="E-Solutions Platform" class="project-image">
+                        <div class="abstract-shape shape-2"></div>
+                    </div>
+                </article>
+
+                <!-- Project 03 -->
+                <article class="project-card bento-item" href="https://auspious.github.io/Socco-Resort/" target="_blank"
+                    data-tech="Next.js, WebGL, GSAP"
+                    data-snippet="const LuxuryResort = () => {\n  useGSAP(() => {\n    gsap.to('.hero', { \n      scrollTrigger: '.gallery',\n      opacity: 0 \n    });\n  });\n  return <ImmersiveUI />;">
+                    <div class="card-content">
+                        <span class="project-tag">Luxury Hospitality</span>
+                        <h3>Socco Resort</h3>
+                        <p>Immersive UI & Luxury Brand Storytelling.</p>
+                        <a href="https://auspious.github.io/Socco-Resort/" target="_blank"
+                            class="project-link magnetic-btn">Experience Resort</a>
+                    </div>
+                    <div class="card-visual">
+                        <img src="socco-resort.png" alt="Socco Resort Website" class="project-image">
+                        <div class="abstract-shape shape-3"></div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Code Snippet Overlay (Ghost Window) -->
+            <div id="code-snippet-overlay" class="glass-panel">
+                <div class="window-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="code-title">Backend_Logic.tsx</span>
+                </div>
+                <pre><code id="dynamic-code">// Hover over a project...</code></pre>
+            </div>
+        </section>
+
+        <!-- TECHNICAL VAULT -->
+        <section id="vault" class="vault-section">
+            <h2 class="section-title">Technical Vault</h2>
+            <div class="bento-grid vault-grid">
+                <div class="bento-box tech-item large">
+                    <h4>Core Stack</h4>
+                    <p>React, Node.js, TypeScript, Python</p>
+                </div>
+                <div class="bento-box tech-item medium">
+                    <h4>Cloud Architecture</h4>
+                    <p>AWS, DigitalOcean, Docker</p>
+                </div>
+                <div class="bento-box tech-item small">
+                    <h4>Design</h4>
+                    <p>Figma, Spline</p>
+                </div>
+                <div class="bento-box tech-item medium">
+                    <h4>Performance</h4>
+                    <p>Next.js, Astro, Redis</p>
+                </div>
+                <div class="bento-box tech-item large display-visual">
+                    <div class="stat-circle">
+                        <span class="number">99%</span>
+                        <span class="label">Lighthouse</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <span class="contact-label">Available for Projects</span>
+            <h2>Let's Architect<br>the Future.</h2>
+            <p class="contact-description">Ready to build scalable, enterprise-grade digital ecosystems? Let's discuss
+                how I can transform your vision into high-performance reality.</p>
+
+            <div class="contact-cta">
+                <a href="mailto:mugaduigodknows1@gmail.com" class="cta-btn-large magnetic-btn">
+                    <span>Start a Conversation</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="contact-info">
+                <div class="info-item">
+                    <span class="label-text">Email</span>
+                    <a href="mailto:mugaduigodknows1@gmail.com">mugaduigodknows1@gmail.com</a>
+                </div>
+                <div class="info-item">
+                    <span class="label-text">Connect</span>
+                    <div class="social-links">
+                        <a href="https://github.com/auspious" target="_blank" class="magnetic-btn">GitHub</a>
+                        <a href="https://linkedin.com/in/godknows-mugaduyi" target="_blank"
+                            class="magnetic-btn">LinkedIn</a>
+                        <a href="https://twitter.com/auspious" target="_blank" class="magnetic-btn">Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">© 2025 Godknows Mugaduyi. All Systems Operational.</p>
+            <p class="built-with">Engineered with precision. Deployed with pride.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

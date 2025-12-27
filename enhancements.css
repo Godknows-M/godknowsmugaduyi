@@ -1,0 +1,244 @@
+/* Contact Section */
+.contact-section {
+    padding: 10rem 4rem;
+    position: relative;
+    background: radial-gradient(ellipse at top, rgba(67, 97, 238, 0.05), transparent 50%);
+}
+
+.contact-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--accent-violet);
+    letter-spacing: 0.2em;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.contact-container h2 {
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.contact-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-cta {
+    margin-bottom: 5rem;
+}
+
+.cta-btn-large {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 3rem;
+    background: var(--accent-cobalt);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: var(--transition-smooth);
+    box-shadow: 0 10px 40px rgba(67, 97, 238, 0.3);
+}
+
+.cta-btn-large:hover {
+    background: var(--accent-violet);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(114, 9, 183, 0.4);
+}
+
+.cta-btn-large svg {
+    transition: transform 0.3s ease;
+}
+
+.cta-btn-large:hover svg {
+    transform: translateX(5px);
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.info-item {
+    text-align: left;
+}
+
+.label-text {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.info-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.info-item a:hover {
+    color: var(--accent-cobalt);
+}
+
+.social-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.social-links a {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Enhanced Footer */
+footer {
+    padding: 3rem 4rem;
+    border-top: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.built-with {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Additional Premium Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-section,
+.work-section,
+.vault-section,
+.contact-section {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Parallax Effect for Sections */
+.hero-section,
+.about-section,
+.work-section,
+.vault-section,
+.contact-section {
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced Responsive */
+@media (max-width: 768px) {
+    .contact-container h2 {
+        font-size: 3rem;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .main-header {
+        padding: 1.5rem 2rem;
+    }
+
+    nav ul {
+        gap: 1.5rem;
+    }
+
+    .hero-section {
+        padding: 0 2rem;
+    }
+
+    .glitch-text {
+        font-size: 2.5rem;
+    }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.stat-circle {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+/* Hover State Enhancements */
+.project-card {
+    cursor: pointer;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(114, 9, 183, 0.1));
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: 1;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
