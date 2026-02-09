@@ -1,48 +1,152 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Godknows Mugaduyi | Full-Stack Architect & Digital Craftsman</title>
+    <title>Godknows Mugaduyi | Visionary Project Lead & Web Developer</title>
     <meta name="description"
-        content="Godknows Mugaduyi: Full-Stack Architect specializing in scalable enterprise, healthcare, fire safety, and luxury hospitality platforms. Building exceptional digital experiences.">
+        content="World-class digital solutions architect building scalable platforms, luxury brand experiences, and community-driven initiatives for the Zimbabwean market and beyond.">
     <meta name="keywords"
-        content="Full-Stack Developer, Web Architect, React, Node.js, Python, Django, Cloud Architecture">
+        content="Project Lead, Web Developer, Full-Stack Architect, Zimbabwe, Luxury Brands, Healthcare Platforms, Community Impact">
     <meta name="author" content="Godknows Mugaduyi">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Godknows Mugaduyi | Full-Stack Architect">
-    <meta property="og:description" content="Building exceptional digital experiences with precision and artistry.">
+    <meta property="og:title" content="Godknows Mugaduyi | Visionary Project Lead">
+    <meta property="og:description" content="Building world-class solutions with technical precision and human impact.">
     <meta property="og:type" content="website">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="Godknows.jpg" as="image">
+
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap"
         rel="stylesheet">
 
-    <!-- GSAP for animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Critical CSS inline for loader -->
+    <style>
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #0d0d0f 0%, #1a1a1f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: hideLoader 3.5s ease forwards;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none
+        }
+
+        @keyframes hideLoader {
+
+            0%,
+            90% {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            100% {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+        }
+
+        .loader-content {
+            text-align: center
+        }
+
+        .loader-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c9a962 0%, #e8d5a3 50%, #c9a962 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            letter-spacing: .1em
+        }
+
+        .loader-bar {
+            width: 250px;
+            height: 2px;
+            background: rgba(201, 169, 98, .2);
+            border-radius: 9999px;
+            overflow: hidden;
+            margin: 0 auto 1.5rem
+        }
+
+        .loader-progress {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #c9a962, #e8d5a3, #c9a962);
+            border-radius: 9999px;
+            animation: loadProgress 2.5s ease-out forwards
+        }
+
+        @keyframes loadProgress {
+            0% {
+                width: 0
+            }
+
+            100% {
+                width: 100%
+            }
+        }
+
+        .loader-text {
+            font-family: 'Inter', sans-serif;
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .3em;
+            color: rgba(201, 169, 98, 0.6)
+        }
+    </style>
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Defer non-critical scripts -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="https://unpkg.com/lenis@1.0.42/dist/lenis.min.js"></script>
 </head>
 
 <body>
+    <!-- Noscript fallback -->
+    <noscript>
+        <style>
+            .loader {
+                display: none !important;
+            }
+        </style>
+    </noscript>
+
     <!-- Loading Screen -->
     <div id="loader" class="loader">
         <div class="loader-content">
-            <div class="loader-logo">GM<span class="accent">.</span></div>
+            <div class="loader-logo">GM</div>
             <div class="loader-bar">
                 <div class="loader-progress"></div>
             </div>
-            <span class="loader-text">Loading Experience</span>
+            <span class="loader-text">Crafting Experience</span>
         </div>
     </div>
 
-    <!-- Scroll Progress -->
+    <!-- Scroll Progress Bar -->
     <div id="scroll-progress"></div>
 
     <!-- Custom Cursor -->
@@ -51,44 +155,45 @@
         <div class="cursor-circle"></div>
     </div>
 
-    <!-- Floating Orbs Background -->
-    <div class="orbs-container">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
+    <!-- Ambient Background -->
+    <div class="ambient-bg">
+        <div class="ambient-orb orb-gold"></div>
+        <div class="ambient-orb orb-slate"></div>
+        <div class="ambient-orb orb-charcoal"></div>
     </div>
 
     <!-- Grain Overlay -->
     <div id="grain-overlay"></div>
 
     <!-- Header -->
-    <header class="header" id="header">
+    <header id="header" class="header">
         <a href="#" class="logo">
-            <span class="logo-text">Godknows<span class="accent">.</span></span>
+            <span class="logo-text">Godknows<span class="gold">.</span></span>
         </a>
 
-        <nav class="nav" id="nav">
+        <nav class="nav">
             <ul class="nav-list">
-                <li><a href="#about" class="nav-link" data-text="About">About</a></li>
-                <li><a href="#work" class="nav-link" data-text="Work">Work</a></li>
-                <li><a href="#skills" class="nav-link" data-text="Skills">Skills</a></li>
-                <li><a href="#contact" class="nav-link" data-text="Contact">Contact</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#expertise" class="nav-link">Expertise</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
+                <li><a href="#impact" class="nav-link">Impact</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
 
         <div class="header-actions">
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
                 <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="5"></circle>
+                    <circle cx="12" cy="12" r="5" />
                     <path
-                        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
-                    </path>
+                        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
                 </svg>
                 <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
                 </svg>
             </button>
-            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+            <a href="#contact" class="btn btn-header">Let's Talk</a>
+            <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -97,11 +202,12 @@
     </header>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobile-menu">
+    <div id="mobile-menu" class="mobile-menu">
         <nav class="mobile-nav">
             <a href="#about" class="mobile-nav-link">About</a>
+            <a href="#expertise" class="mobile-nav-link">Expertise</a>
             <a href="#work" class="mobile-nav-link">Work</a>
-            <a href="#skills" class="mobile-nav-link">Skills</a>
+            <a href="#impact" class="mobile-nav-link">Impact</a>
             <a href="#contact" class="mobile-nav-link">Contact</a>
         </nav>
     </div>
@@ -110,306 +216,527 @@
         <!-- Hero Section -->
         <section id="hero" class="hero">
             <div class="hero-content">
-                <div class="hero-badge reveal-up">
-                    <span class="status-dot"></span>
-                    Available for new projects
-                </div>
-
-                <!-- Floating Code Cubes Background -->
-                <div class="floating-cubes-container">
-                    <!-- Cube 1: Top Left -->
-                    <div class="floating-cube cube-1">
-                        <div class="cube-face front"><span>&lt;/&gt;</span></div>
-                        <div class="cube-face back"><span>{...}</span></div>
-                        <div class="cube-face right"><span>( )</span></div>
-                        <div class="cube-face left"><span>[ ]</span></div>
-                        <div class="cube-face top"><span>fn()</span></div>
-                        <div class="cube-face bottom"><span>λ</span></div>
-                    </div>
-
-                    <!-- Cube 2: Top Right -->
-                    <div class="floating-cube cube-2">
-                        <div class="cube-face front"><span>=&gt;</span></div>
-                        <div class="cube-face back"><span>::</span></div>
-                        <div class="cube-face right"><span>&&</span></div>
-                        <div class="cube-face left"><span>||</span></div>
-                        <div class="cube-face top"><span>+</span></div>
-                        <div class="cube-face bottom"><span>*</span></div>
-                    </div>
-
-                    <!-- Cube 3: Center Left -->
-                    <div class="floating-cube cube-3">
-                        <div class="cube-face front"><span>API</span></div>
-                        <div class="cube-face back"><span>DB</span></div>
-                        <div class="cube-face right"><span>UI</span></div>
-                        <div class="cube-face left"><span>UX</span></div>
-                        <div class="cube-face top"><span>JS</span></div>
-                        <div class="cube-face bottom"><span>TS</span></div>
-                    </div>
-
-                    <!-- Cube 4: Center Right -->
-                    <div class="floating-cube cube-4">
-                        <div class="cube-face front"><span>//</span></div>
-                        <div class="cube-face back"><span>/*</span></div>
-                        <div class="cube-face right"><span>#</span></div>
-                        <div class="cube-face left"><span>@</span></div>
-                        <div class="cube-face top"><span>$</span></div>
-                        <div class="cube-face bottom"><span>%</span></div>
-                    </div>
-
-                    <!-- Cube 5: Bottom Center -->
-                    <div class="floating-cube cube-5">
-                        <div class="cube-face front"><span>&lt;?&gt;</span></div>
-                        <div class="cube-face back"><span>{ }</span></div>
-                        <div class="cube-face right"><span>::</span></div>
-                        <div class="cube-face left"><span>=</span></div>
-                        <div class="cube-face top"><span>&amp;</span></div>
-                        <div class="cube-face bottom"><span>!</span></div>
+                <!-- Glassmorphism Card -->
+                <div class="hero-glass-card">
+                    <div class="hero-badge">
+                        <span class="status-dot"></span>
+                        <span>Available for Q1 2026 Projects</span>
                     </div>
                 </div>
-
 
                 <h1 class="hero-title">
-                    <span class="title-line reveal-up">Crafting</span>
-                    <span class="title-line reveal-up"><span class="gradient-text">Digital</span></span>
-                    <span class="title-line reveal-up">Experiences</span>
+                    <span class="title-line">Visionary</span>
+                    <span class="title-line"><span class="gold-text">Project Lead</span></span>
+                    <span class="title-line">& Web Developer</span>
                 </h1>
 
-                <p class="hero-description reveal-up">
-                    Full-Stack Architect with expertise in building <strong>scalable enterprise solutions</strong>,
-                    <strong>healthcare platforms</strong>, <strong>fire safety systems</strong>, and <strong>luxury
-                        hospitality experiences</strong>.
-                    Transforming complex challenges into elegant, high-performance digital ecosystems.
+                <p class="hero-subtitle">
+                    Crafting <strong>world-class digital solutions</strong> with the precision of an architect
+                    and the soul of an artist. Specializing in <em>luxury brand experiences</em>,
+                    <em>enterprise platforms</em>, and <em>community-driven innovation</em>.
                 </p>
 
-                <div class="hero-cta reveal-up">
-                    <a href="#work" class="btn btn-primary">
-                        <span>Explore Work</span>
+                <div class="hero-cta">
+                    <a href="#work" class="btn btn-primary btn-large">
+                        <span>View Portfolio</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                     </a>
-                    <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+                    <a href="#contact" class="btn btn-secondary btn-large">
+                        <span>Start a Project</span>
+                    </a>
                 </div>
 
-                <div class="hero-stats reveal-up">
-                    <div class="stat">
-                        <span class="stat-number" data-count="4">0</span><span class="stat-suffix">+</span>
-                        <span class="stat-label">Projects Delivered</span>
+                <!-- 3D Floating Element -->
+                <div class="hero-3d-element">
+                    <div class="floating-prism">
+                        <div class="prism-face front"></div>
+                        <div class="prism-face back"></div>
+                        <div class="prism-face right"></div>
+                        <div class="prism-face left"></div>
+                        <div class="prism-face top"></div>
+                        <div class="prism-face bottom"></div>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number" data-count="99">0</span><span class="stat-suffix">%</span>
-                        <span class="stat-label">Performance Score</span>
+                </div>
+
+                <!-- Hero Metrics -->
+                <div class="hero-metrics">
+                    <div class="metric">
+                        <span class="metric-number" data-count="15">15</span><span class="metric-suffix">+</span>
+                        <span class="metric-label">Projects Delivered</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number" data-count="3">0</span><span class="stat-suffix">+</span>
-                        <span class="stat-label">Years Experience</span>
+                    <div class="metric-divider"></div>
+                    <div class="metric">
+                        <span class="metric-number" data-count="50">50</span><span class="metric-suffix">K+</span>
+                        <span class="metric-label">Users Impacted</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric">
+                        <span class="metric-number" data-count="100">100</span><span class="metric-suffix">%</span>
+                        <span class="metric-label">Client Satisfaction</span>
                     </div>
                 </div>
             </div>
 
+            <!-- Scroll Indicator -->
             <div class="scroll-indicator">
-                <div class="mouse">
-                    <div class="wheel"></div>
-                </div>
-                <span>Scroll to explore</span>
+                <div class="scroll-line"></div>
+                <span>Scroll to Explore</span>
             </div>
         </section>
 
         <!-- About Section -->
         <section id="about" class="about section">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-label reveal-up">About Me</span>
-                    <h2 class="section-title reveal-up">The Architect Behind<br><span class="gradient-text">The
-                            Pixels</span></h2>
-                </div>
-
                 <div class="about-grid">
-                    <div class="about-image-wrapper reveal-left">
-                        <div class="about-image">
+                    <div class="about-image-wrapper">
+                        <div class="about-image-container">
                             <img src="Godknows.jpg" alt="Godknows Mugaduyi" loading="lazy">
-                            <div class="image-overlay"></div>
+                            <div class="image-frame"></div>
                         </div>
-                        <div class="image-decoration"></div>
+                        <div class="about-badge">
+                            <span class="badge-icon">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="var(--gold-primary)"
+                                    stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                            </span>
+                            <span class="badge-text">Made in Zimbabwe</span>
+                        </div>
                     </div>
 
-                    <div class="about-content reveal-right">
+                    <div class="about-content">
+                        <span class="section-label">The Architect</span>
+                        <h2 class="section-title">Building <span class="gold-text">World-Class</span><br>Solutions for
+                            Africa</h2>
+
                         <div class="about-text">
                             <p class="lead">
-                                I'm <strong>Godknows Mugaduyi</strong>, a passionate Full-Stack Architect dedicated to
-                                building digital experiences that are not just functional, but exceptional.
+                                I'm a <strong>Full-Stack Web Developer & Project Lead</strong> based in Zimbabwe,
+                                passionate about crafting digital experiences that blend <em>technical precision</em>
+                                with <em>human impact</em>.
                             </p>
                             <p>
-                                With expertise spanning <em>React</em>, <em>Node.js</em>, <em>Python/Django</em>, and
-                                <em>Cloud Infrastructure</em>, I architect solutions that prioritize security,
-                                performance, and user experience. From HIPAA-compliant healthcare platforms to
-                                cutting-edge fire safety systems, I transform complex requirements into elegant code.
-                            </p>
-                            <p>
-                                My approach combines technical precision with creative vision—ensuring every project
-                                I deliver is not just built to spec, but built to impress. New in the game, but
-                                creating work that rivals the legends.
+                                From luxury e-commerce platforms to healthcare systems and community-driven initiatives,
+                                I partner with visionary organizations to build solutions that matter. My work spans
+                                <strong>enterprise platforms</strong>, <strong>brand experiences</strong>, and
+                                <strong>social impact projects</strong>.
                             </p>
                         </div>
 
-                        <div class="about-cards">
-                            <div class="info-card">
-                                <div class="card-icon">
+                        <div class="about-highlights">
+                            <div class="highlight-card">
+                                <div class="highlight-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                        <polyline points="22 4 12 14.01 9 11.01" />
+                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                                     </svg>
                                 </div>
-                                <h4>Quality First</h4>
-                                <p>Every line of code is crafted with precision and purpose.</p>
+                                <div class="highlight-content">
+                                    <h4>Full-Stack Expertise</h4>
+                                    <p>From React to Django, building end-to-end solutions</p>
+                                </div>
                             </div>
-                            <div class="info-card">
-                                <div class="card-icon">
+                            <div class="highlight-card">
+                                <div class="highlight-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path
+                                            d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
                                     </svg>
                                 </div>
-                                <h4>Performance</h4>
-                                <p>Optimized for speed, scalability, and seamless user experience.</p>
+                                <div class="highlight-content">
+                                    <h4>Zimbabwean Context</h4>
+                                    <p>Deep understanding of local market needs</p>
+                                </div>
                             </div>
                         </div>
-
-                        <a href="#contact" class="btn btn-outline">
-                            <span>Get in Touch</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Work Section -->
+        <!-- Technical Expertise Section -->
+        <section id="expertise" class="expertise section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Technical Capabilities</span>
+                    <h2 class="section-title">The <span class="gold-text">Arsenal</span><br>Behind the Vision</h2>
+                    <p class="section-subtitle">A curated stack for building exceptional digital experiences</p>
+                </div>
+
+                <div class="tech-gallery">
+                    <div class="tech-category">
+                        <div class="tech-category-header">
+                            <span class="tech-icon">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--gold-primary)"
+                                    stroke-width="2">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                </svg>
+                            </span>
+                            <h3>Frontend Excellence</h3>
+                        </div>
+                        <div class="tech-grid">
+                            <div class="tech-item" data-tilt><span class="tech-name">React</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">Next.js</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">TypeScript</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">GSAP</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">Three.js</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">Tailwind</span></div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category">
+                        <div class="tech-category-header">
+                            <span class="tech-icon">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--gold-primary)"
+                                    stroke-width="2">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                                    <line x1="8" y1="21" x2="16" y2="21" />
+                                    <line x1="12" y1="17" x2="12" y2="21" />
+                                </svg>
+                            </span>
+                            <h3>Backend Power</h3>
+                        </div>
+                        <div class="tech-grid">
+                            <div class="tech-item" data-tilt><span class="tech-name">Node.js</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">Python</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">Django</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">Express</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">GraphQL</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">REST APIs</span></div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category">
+                        <div class="tech-category-header">
+                            <span class="tech-icon">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--gold-primary)"
+                                    stroke-width="2">
+                                    <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" />
+                                </svg>
+                            </span>
+                            <h3>Cloud & DevOps</h3>
+                        </div>
+                        <div class="tech-grid">
+                            <div class="tech-item" data-tilt><span class="tech-name">AWS</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">Firebase</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">Docker</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">Supabase</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">CI/CD</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">PostgreSQL</span></div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category">
+                        <div class="tech-category-header">
+                            <span class="tech-icon">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--gold-primary)"
+                                    stroke-width="2">
+                                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                                    <line x1="12" y1="18" x2="12.01" y2="18" />
+                                </svg>
+                            </span>
+                            <h3>Mobile & Beyond</h3>
+                        </div>
+                        <div class="tech-grid">
+                            <div class="tech-item" data-tilt><span class="tech-name">Flutter</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">React Native</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">PWA</span></div>
+                            <div class="tech-item" data-tilt><span class="tech-name">Dart</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
         <section id="work" class="work section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label reveal-up">Selected Projects</span>
-                    <h2 class="section-title reveal-up">Featured<br><span class="gradient-text">Case Studies</span></h2>
+                    <span class="section-label">Selected Work</span>
+                    <h2 class="section-title">Curated <span class="gold-text">Case Studies</span></h2>
+                    <p class="section-subtitle">Where vision meets execution</p>
                 </div>
 
-                <div class="projects-grid">
-                    <!-- Project 1: Equity Fire Solutions (NEW) -->
-                    <article class="project-card large reveal-up" data-tilt>
+                <div class="portfolio-grid">
+                    <!-- Project 1: Aura & Co -->
+                    <article class="project-card featured" data-tilt>
                         <div class="project-image">
-                            <img src="equity-fire.png" alt="Equity Fire Solutions" loading="lazy">
+                            <div class="project-image-placeholder aura">
+                                <svg class="placeholder-svg" viewBox="0 0 24 24" width="48" height="48" fill="none"
+                                    stroke="currentColor" stroke-width="1.5">
+                                    <path
+                                        d="M20 12V22H4V12M22 7H2L12 2L22 7ZM12 22V7M12 7H7.5C6.11929 7 5 5.88071 5 4.5C5 3.11929 6.11929 2 7.5 2C10 2 12 7 12 7ZM12 7H16.5C17.8807 7 19 5.88071 19 4.5C19 3.11929 17.8807 2 16.5 2C14 2 12 7 12 7Z" />
+                                </svg>
+                                <span class="placeholder-brand">Aura & Co.</span>
+                            </div>
                             <div class="project-overlay"></div>
                         </div>
                         <div class="project-content">
                             <div class="project-meta">
-                                <span class="project-category">Fire & Life Safety</span>
+                                <span class="project-category">Luxury E-Commerce</span>
+                                <span class="project-year">2024</span>
+                            </div>
+                            <h3 class="project-title">Aura & Co.</h3>
+                            <p class="project-tagline">Where Emotions Become Tangible</p>
+                            <p class="project-description">
+                                A bespoke gifting atelier platform transforming sentiments into exquisite handcrafted
+                                treasures. Full e-commerce experience with premium aesthetics.
+                            </p>
+                            <div class="project-results">
+                                <div class="result-item">
+                                    <span class="result-number">4</span>
+                                    <span class="result-label">Collections</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-number">100%</span>
+                                    <span class="result-label">Custom Design</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-number">Premium</span>
+                                    <span class="result-label">UX/UI</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                                <span>Animations</span>
+                            </div>
+                            <a href="https://auraandco.co.zw" target="_blank" class="project-link">
+                                <span>View Live Site</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: Valentines With Goddy -->
+                    <article class="project-card" data-tilt>
+                        <div class="project-image">
+                            <div class="project-image-placeholder valentines">
+                                <svg class="placeholder-svg" viewBox="0 0 24 24" width="48" height="48" fill="none"
+                                    stroke="currentColor" stroke-width="1.5">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                                </svg>
+                                <span class="placeholder-brand">ValentinesWithGoddy</span>
+                            </div>
+                            <div class="project-overlay"></div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-category">Luxury Gifting</span>
+                                <span class="project-year">2024</span>
+                            </div>
+                            <h3 class="project-title">ValentinesWithGoddy</h3>
+                            <p class="project-tagline">Commission a Memory, Not Just a Gift</p>
+                            <p class="project-description">
+                                Zimbabwe's #1 luxury Valentine's gifting platform featuring teddy boutiques, curated
+                                collections, and romantic room setups.
+                            </p>
+                            <div class="project-results">
+                                <div class="result-item">
+                                    <span class="result-number">3</span>
+                                    <span class="result-label">Service Tiers</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-number">Custom</span>
+                                    <span class="result-label">Gift Builder</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span>React</span>
+                                <span>GSAP</span>
+                                <span>E-Commerce</span>
+                            </div>
+                            <a href="https://valentineswithgoddy.co.zw" target="_blank" class="project-link">
+                                <span>View Live Site</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: R.U.V.A -->
+                    <article class="project-card" data-tilt>
+                        <div class="project-image">
+                            <div class="project-image-placeholder ruva">
+                                <svg class="placeholder-svg" viewBox="0 0 24 24" width="48" height="48" fill="none"
+                                    stroke="currentColor" stroke-width="1.5">
+                                    <path
+                                        d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" />
+                                    <path d="M12 6V12L16 14" />
+                                    <path d="M8 2L4 6M20 6L16 2" />
+                                </svg>
+                                <span class="placeholder-brand">R.U.V.A</span>
+                            </div>
+                            <div class="project-overlay"></div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-category">Artisan Brand</span>
+                                <span class="project-year">2024</span>
+                            </div>
+                            <h3 class="project-title">R.U.V.A</h3>
+                            <p class="project-tagline">Timeless Style. Handcrafted with Heart.</p>
+                            <p class="project-description">
+                                A luxury brand platform showcasing handcrafted fashion pieces with a focus on
+                                Zimbabwean artisanal craftsmanship and heritage.
+                            </p>
+                            <div class="project-results">
+                                <div class="result-item">
+                                    <span class="result-number">Artisan</span>
+                                    <span class="result-label">Craftsmanship</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-number">Heritage</span>
+                                    <span class="result-label">Focus</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <a href="https://auspious.github.io/R.U.V.A/" target="_blank" class="project-link">
+                                <span>View Live Site</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: Zunde Revakuru -->
+                    <article class="project-card featured" data-tilt>
+                        <div class="project-image">
+                            <div class="project-image-placeholder zunde">
+                                <svg class="placeholder-svg" viewBox="0 0 24 24" width="48" height="48" fill="none"
+                                    stroke="currentColor" stroke-width="1.5">
+                                    <path
+                                        d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path
+                                        d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" />
+                                    <path
+                                        d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" />
+                                </svg>
+                                <span class="placeholder-brand">Zunde Revakuru</span>
+                            </div>
+                            <div class="project-overlay"></div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-category">Community Impact</span>
+                                <span class="project-year">2024</span>
+                            </div>
+                            <h3 class="project-title">Zunde Revakuru</h3>
+                            <p class="project-tagline">Handcrafted Excellence from Our Elders</p>
+                            <p class="project-description">
+                                A specialized marketplace empowering elderly-led Zimbabwean businesses, connecting
+                                artisan products with conscious consumers while preserving traditional craftsmanship.
+                            </p>
+                            <div class="project-results">
+                                <div class="result-item">
+                                    <span class="result-number">Elder</span>
+                                    <span class="result-label">Empowerment</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-number">Community</span>
+                                    <span class="result-label">Impact</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-number">Heritage</span>
+                                    <span class="result-label">Preservation</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                                <span>WhatsApp API</span>
+                            </div>
+                            <a href="https://auspious.github.io/Zunde-ravakuru/" target="_blank" class="project-link">
+                                <span>View Live Site</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 5: Equity Fire Solutions -->
+                    <article class="project-card" data-tilt>
+                        <div class="project-image">
+                            <div class="project-image-placeholder equity">
+                                <svg class="placeholder-svg" viewBox="0 0 24 24" width="48" height="48" fill="none"
+                                    stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" />
+                                    <path d="M9 12L11 14L15 10" />
+                                </svg>
+                                <span class="placeholder-brand">Equity Fire</span>
+                            </div>
+                            <div class="project-overlay"></div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-category">Enterprise Website</span>
                                 <span class="project-year">2024</span>
                             </div>
                             <h3 class="project-title">Equity Fire Solutions</h3>
+                            <p class="project-tagline">Protecting What Matters Most</p>
                             <p class="project-description">
-                                Intelligent fire protection systems with a premium dark-mode interface.
-                                Features glassmorphism UI, dynamic stats, and comprehensive safety solutions.
+                                Professional fire protection and safety services company website with service
+                                showcase and quote generation functionality.
+                            </p>
+                            <div class="project-tech">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                            </div>
+                            <a href="#" class="project-link">
+                                <span>View Case Study</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 6: Kayden Clinic -->
+                    <article class="project-card" data-tilt>
+                        <div class="project-image">
+                            <div class="project-image-placeholder kayden">
+                                <svg class="placeholder-svg" viewBox="0 0 24 24" width="48" height="48" fill="none"
+                                    stroke="currentColor" stroke-width="1.5">
+                                    <path d="M22 12H18L15 21L9 3L6 12H2" />
+                                </svg>
+                                <span class="placeholder-brand">Kayden Clinic</span>
+                            </div>
+                            <div class="project-overlay"></div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-category">Healthcare Platform</span>
+                                <span class="project-year">2024</span>
+                            </div>
+                            <h3 class="project-title">Kayden Medical Centre</h3>
+                            <p class="project-tagline">Your Partner in Comprehensive Healthcare</p>
+                            <p class="project-description">
+                                Modern healthcare platform featuring appointment scheduling, service
+                                information, and patient engagement tools for a growing medical center.
                             </p>
                             <div class="project-tech">
                                 <span>HTML5</span>
                                 <span>CSS3</span>
                                 <span>JavaScript</span>
-                                <span>Glassmorphism</span>
                             </div>
-                            <a href="https://godknows-m.github.io/equityfiresolutions/index.html" target="_blank"
-                                class="project-link">
-                                <span>View Project</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17" />
-                                </svg>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Project 2: Kayden Clinic -->
-                    <article class="project-card reveal-up" data-tilt>
-                        <div class="project-image">
-                            <img src="kayden-clinic.png" alt="Kayden Clinic" loading="lazy">
-                            <div class="project-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-meta">
-                                <span class="project-category">Healthcare</span>
-                                <span class="project-year">2024</span>
-                            </div>
-                            <h3 class="project-title">Kayden Clinic</h3>
-                            <p class="project-description">
-                                Patient-first healthcare platform with HIPAA-compliant secure data handling
-                                and intuitive appointment systems.
-                            </p>
-                            <div class="project-tech">
-                                <span>React</span>
-                                <span>Python</span>
-                                <span>HIPAA</span>
-                            </div>
-                            <a href="https://auspious.github.io/Kayden-Clinic/" target="_blank" class="project-link">
-                                <span>View Project</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17" />
-                                </svg>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Project 3: E-Solutions -->
-                    <article class="project-card reveal-up" data-tilt>
-                        <div class="project-image">
-                            <img src="esolutions.png" alt="E-Solutions Platform" loading="lazy">
-                            <div class="project-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-meta">
-                                <span class="project-category">Enterprise</span>
-                                <span class="project-year">2024</span>
-                            </div>
-                            <h3 class="project-title">E-Solutions</h3>
-                            <p class="project-description">
-                                Digital transformation platform with cloud-native architecture and
-                                enterprise-grade scalability.
-                            </p>
-                            <div class="project-tech">
-                                <span>Cloud</span>
-                                <span>Docker</span>
-                                <span>K8s</span>
-                            </div>
-                            <a href="https://esolutions-gdujf.ondigitalocean.app" target="_blank" class="project-link">
-                                <span>View Project</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17" />
-                                </svg>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Project 4: Socco Resort -->
-                    <article class="project-card large reveal-up" data-tilt>
-                        <div class="project-image">
-                            <img src="socco-resort.png" alt="Socco Resort" loading="lazy">
-                            <div class="project-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-meta">
-                                <span class="project-category">Luxury Hospitality</span>
-                                <span class="project-year">2024</span>
-                            </div>
-                            <h3 class="project-title">Socco Resort</h3>
-                            <p class="project-description">
-                                Immersive luxury resort experience with stunning visual storytelling,
-                                smooth animations, and premium booking interface.
-                            </p>
-                            <div class="project-tech">
-                                <span>Next.js</span>
-                                <span>GSAP</span>
-                                <span>WebGL</span>
-                            </div>
-                            <a href="https://auspious.github.io/Socco-Resort/" target="_blank" class="project-link">
-                                <span>View Project</span>
+                            <a href="#" class="project-link">
+                                <span>View Case Study</span>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M7 17L17 7M17 7H7M17 7V17" />
                                 </svg>
@@ -420,174 +747,182 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="skills section">
+        <!-- Impact Section -->
+        <section id="impact" class="impact section">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label reveal-up">Technical Expertise</span>
-                    <h2 class="section-title reveal-up">My<br><span class="gradient-text">Tech Stack</span></h2>
+                    <span class="section-label">Community Impact</span>
+                    <h2 class="section-title">Beyond <span class="gold-text">Code</span></h2>
+                    <p class="section-subtitle">Making a difference through technology and mentorship</p>
                 </div>
 
-                <div class="skills-grid">
-                    <div class="skill-category reveal-up">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="16 18 22 12 16 6" />
-                                    <polyline points="8 6 2 12 8 18" />
+                <div class="impact-grid">
+                    <!-- Global Shapers Impact Card -->
+                    <div class="impact-card featured">
+                        <div class="impact-header">
+                            <span class="impact-icon">
+                                <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--gold-primary)"
+                                    stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path
+                                        d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
                                 </svg>
-                            </div>
-                            <h3>Frontend</h3>
+                            </span>
+                            <span class="impact-label">Global Shapers Community</span>
                         </div>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">React / Next.js</span>
-                                    <span class="skill-level">95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="95"></div>
-                                </div>
+                        <h3 class="impact-title">Wing of Grace Orphanage Session</h3>
+                        <p class="impact-description">
+                            Bridging the generational gap through technology and mentorship, empowering both elderly
+                            entrepreneurs and young minds.
+                        </p>
+                        <div class="impact-stats">
+                            <div class="impact-stat">
+                                <span class="stat-number">32</span>
+                                <span class="stat-label">Participants Engaged</span>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">TypeScript</span>
-                                    <span class="skill-level">90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
+                            <div class="impact-stat">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">Generations Connected</span>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">CSS / Tailwind</span>
-                                    <span class="skill-level">95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="95"></div>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="impact-outcome">
+                            <strong>The Impact:</strong> Engaged 32 elderly entrepreneurs and children, bridging the
+                            generational gap through technology and mentorship.
                         </div>
                     </div>
 
-                    <div class="skill-category reveal-up">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                                    <line x1="8" y1="21" x2="16" y2="21" />
-                                    <line x1="12" y1="17" x2="12" y2="21" />
-                                </svg>
-                            </div>
-                            <h3>Backend</h3>
-                        </div>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Node.js / Express</span>
-                                    <span class="skill-level">90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Python / Django</span>
-                                    <span class="skill-level">92%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="92"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">PostgreSQL / MongoDB</span>
-                                    <span class="skill-level">88%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="88"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category reveal-up">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
-                                </svg>
-                            </div>
-                            <h3>Cloud & DevOps</h3>
-                        </div>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">AWS / DigitalOcean</span>
-                                    <span class="skill-level">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Docker / Kubernetes</span>
-                                    <span class="skill-level">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="80"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">CI/CD Pipelines</span>
-                                    <span class="skill-level">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category reveal-up">
-                        <div class="category-header">
-                            <div class="category-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <!-- Services Card -->
+                    <div class="impact-card">
+                        <div class="impact-header">
+                            <span class="impact-icon">
+                                <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--gold-primary)"
+                                    stroke-width="1.5">
                                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                                 </svg>
-                            </div>
-                            <h3>Tools & Design</h3>
+                            </span>
+                            <span class="impact-label">Services</span>
                         </div>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Git / GitHub</span>
-                                    <span class="skill-level">95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="95"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Figma</span>
-                                    <span class="skill-level">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="80"></div>
+                        <h3 class="impact-title">What I Offer</h3>
+                        <div class="services-list">
+                            <div class="service-item">
+                                <span class="service-icon">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                        stroke="var(--gold-primary)" stroke-width="2">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                                        <line x1="8" y1="21" x2="16" y2="21" />
+                                        <line x1="12" y1="17" x2="12" y2="21" />
+                                    </svg>
+                                </span>
+                                <div class="service-content">
+                                    <h4>Web Development</h4>
+                                    <p>Full-stack solutions from concept to deployment</p>
                                 </div>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">GSAP / Framer</span>
-                                    <span class="skill-level">85%</span>
+                            <div class="service-item">
+                                <span class="service-icon">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                        stroke="var(--gold-primary)" stroke-width="2">
+                                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                                        <line x1="12" y1="18" x2="12.01" y2="18" />
+                                    </svg>
+                                </span>
+                                <div class="service-content">
+                                    <h4>Mobile Apps</h4>
+                                    <p>Cross-platform Flutter & React Native development</p>
                                 </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                            <div class="service-item">
+                                <span class="service-icon">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                        stroke="var(--gold-primary)" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                                        <circle cx="9" cy="7" r="4" />
+                                        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+                                    </svg>
+                                </span>
+                                <div class="service-content">
+                                    <h4>Project Leadership</h4>
+                                    <p>End-to-end project management & consulting</p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Client Voices</span>
+                    <h2 class="section-title">What <span class="gold-text">They Say</span></h2>
+                    <p class="section-subtitle">Trusted by visionary founders and organizations</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <svg viewBox="0 0 24 24" width="32" height="32">
+                                    <path
+                                        d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489 0 .966-.384 1.891-1.066 2.574A3.614 3.614 0 017.2 18.14a3.608 3.608 0 01-2.617-1.819zM14.583 17.321C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489 0 .966-.384 1.891-1.066 2.574a3.614 3.614 0 01-2.565 1.066 3.608 3.608 0 01-2.617-1.819z" />
+                                </svg>
+                            </div>
+                            <p class="testimonial-text">
+                                "Godknows transformed our vision into a stunning digital reality. His attention to
+                                detail and understanding of luxury aesthetics exceeded our expectations."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AC</div>
+                            <div class="author-info">
+                                <span class="author-name">Aura & Co.</span>
+                                <span class="author-role">Founder, Luxury Gifting</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <svg viewBox="0 0 24 24" width="32" height="32">
+                                    <path
+                                        d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489 0 .966-.384 1.891-1.066 2.574A3.614 3.614 0 017.2 18.14a3.608 3.608 0 01-2.617-1.819zM14.583 17.321C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489 0 .966-.384 1.891-1.066 2.574a3.614 3.614 0 01-2.565 1.066 3.608 3.608 0 01-2.617-1.819z" />
+                                </svg>
+                            </div>
+                            <p class="testimonial-text">
+                                "Professional, innovative, and deeply committed to community impact. Godknows doesn't
+                                just build websites—he creates experiences that matter."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">GS</div>
+                            <div class="author-info">
+                                <span class="author-name">Global Shapers</span>
+                                <span class="author-role">Harare Hub</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <svg viewBox="0 0 24 24" width="32" height="32">
+                                    <path
+                                        d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489 0 .966-.384 1.891-1.066 2.574A3.614 3.614 0 017.2 18.14a3.608 3.608 0 01-2.617-1.819zM14.583 17.321C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489 0 .966-.384 1.891-1.066 2.574a3.614 3.614 0 01-2.565 1.066 3.608 3.608 0 01-2.617-1.819z" />
+                                </svg>
+                            </div>
+                            <p class="testimonial-text">
+                                "The Zunde Revakuru platform has given our elderly artisans a voice in the digital
+                                marketplace. Truly impactful work that changes lives."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ZR</div>
+                            <div class="author-info">
+                                <span class="author-name">Zunde Revakuru</span>
+                                <span class="author-role">Community Partner</span>
                             </div>
                         </div>
                     </div>
@@ -599,16 +934,18 @@
         <section id="contact" class="contact section">
             <div class="container">
                 <div class="contact-wrapper">
-                    <div class="contact-content reveal-left">
-                        <span class="section-label">Get In Touch</span>
-                        <h2 class="section-title">Let's Build<br><span class="gradient-text">Something Great</span></h2>
+                    <div class="contact-content">
+                        <span class="section-label">Let's Connect</span>
+                        <h2 class="section-title">Ready to Build<br><span class="gold-text">Something
+                                Exceptional?</span></h2>
                         <p class="contact-description">
-                            Have a project in mind? I'm currently available for freelance work and exciting
-                            new opportunities. Let's discuss how we can bring your vision to life.
+                            I'm currently accepting new projects for Q1 2026. Whether you need a luxury brand
+                            experience, an enterprise platform, or a community-driven solution —
+                            let's create something that makes an impact.
                         </p>
 
                         <div class="contact-details">
-                            <a href="mailto:mugaduigodknows1@gmail.com" class="contact-item">
+                            <a href="mailto:mugaduyigodknows1@gmail.com" class="contact-item">
                                 <div class="contact-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path
@@ -618,30 +955,27 @@
                                 </div>
                                 <div class="contact-text">
                                     <span class="contact-label-small">Email</span>
-                                    <span class="contact-value">mugaduigodknows1@gmail.com</span>
+                                    <span class="contact-value">mugaduyigodknows1@gmail.com</span>
                                 </div>
                             </a>
-
-                            <a href="https://github.com/auspious" target="_blank" class="contact-item">
+                            <a href="https://github.com/Godknows-M" target="_blank" class="contact-item">
                                 <div class="contact-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path
-                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
                                     </svg>
                                 </div>
                                 <div class="contact-text">
                                     <span class="contact-label-small">GitHub</span>
-                                    <span class="contact-value">@auspious</span>
+                                    <span class="contact-value">Godknows-M</span>
                                 </div>
                             </a>
-
-                            <a href="https://linkedin.com/in/godknows-mugaduyi" target="_blank" class="contact-item">
+                            <a href="https://www.linkedin.com/in/godknows-mugaduyi-6b86b2295/" target="_blank"
+                                class="contact-item">
                                 <div class="contact-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path
-                                            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                        <rect x="2" y="9" width="4" height="12" />
-                                        <circle cx="4" cy="4" r="2" />
+                                            d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z" />
                                     </svg>
                                 </div>
                                 <div class="contact-text">
@@ -652,17 +986,25 @@
                         </div>
                     </div>
 
-                    <div class="contact-cta-box reveal-right">
+                    <div class="contact-cta-box">
                         <div class="cta-content">
+                            <div class="cta-badge">
+                                <span class="status-dot"></span>
+                                <span>Available Now</span>
+                            </div>
                             <h3>Ready to start a project?</h3>
-                            <p>Let's create something exceptional together.</p>
-                            <a href="mailto:mugaduigodknows1@gmail.com" class="btn btn-primary btn-large">
-                                <span>Start a Conversation</span>
+                            <p>Book a free 30-minute discovery call to discuss your vision and how we can bring it to
+                                life.</p>
+                            <a href="mailto:godknowsmm@outlook.com?subject=Project%20Inquiry"
+                                class="btn btn-primary btn-large">
+                                <span>Book Discovery Call</span>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
                             </a>
+                            <p class="cta-note">Usually responds within 24 hours</p>
                         </div>
+
                         <div class="cta-decoration">
                             <div class="floating-shape shape-1"></div>
                             <div class="floating-shape shape-2"></div>
@@ -679,42 +1021,40 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <a href="#" class="footer-logo">Godknows<span class="accent">.</span></a>
-                    <p>Building exceptional digital experiences with precision and artistry.</p>
+                    <span class="footer-logo">Godknows<span class="gold">.</span></span>
+                    <p>Building world-class digital solutions with technical precision and human impact.</p>
                 </div>
-
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Navigation</h4>
                         <a href="#about">About</a>
+                        <a href="#expertise">Expertise</a>
                         <a href="#work">Work</a>
-                        <a href="#skills">Skills</a>
                         <a href="#contact">Contact</a>
                     </div>
                     <div class="footer-column">
                         <h4>Connect</h4>
-                        <a href="https://github.com/auspious" target="_blank">GitHub</a>
-                        <a href="https://linkedin.com/in/godknows-mugaduyi" target="_blank">LinkedIn</a>
-                        <a href="https://twitter.com/auspious" target="_blank">Twitter</a>
+                        <a href="https://github.com/Auspious" target="_blank">GitHub</a>
+                        <a href="https://www.linkedin.com/in/godknows-mugaduyi-6b86b2295/" target="_blank">LinkedIn</a>
+                        <a href="mailto:godknowsmm@outlook.com">Email</a>
                     </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p class="copyright">© 2025 Godknows Mugaduyi. All rights reserved.</p>
-                <p class="built-with">Engineered with precision. Deployed with pride.</p>
+                <p class="copyright">&copy; 2026 Godknows Mugaduyi. All rights reserved.</p>
+                <p class="built-with">Crafted with precision in Zimbabwe</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top -->
+    <!-- Back to Top Button -->
     <button id="back-to-top" class="back-to-top" aria-label="Back to top">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
 
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
 </body>
 
 </html>
