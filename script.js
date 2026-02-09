@@ -347,8 +347,10 @@ function initThemeToggle() {
     if (savedTheme) {
         html.setAttribute('data-theme', savedTheme);
     } else {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        html.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        // Force dark theme as default regardless of system preference
+        html.setAttribute('data-theme', 'dark');
+        // Optional: Save it immediately so it persists
+        // localStorage.setItem('theme', 'dark'); 
     }
 
     toggle.addEventListener('click', () => {
